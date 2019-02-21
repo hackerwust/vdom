@@ -1,0 +1,14 @@
+{
+  "name": "vdom",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "babel src --out-dir dist --copy-files --watch"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.23.0"
+  }
+}
