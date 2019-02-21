@@ -1,6 +1,6 @@
 # react-vdom
 
-实现 react vdom patch && diff算法
+主要实现了react中的vdom diff && patch 部分
 
 ### 运行
 1. git clone https://github.com/hackerwust/react-vdom.git
