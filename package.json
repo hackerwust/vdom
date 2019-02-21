@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "babel src --out-dir dist --copy-files --watch"
+    "start": "rollup -c -w"
   },
   "author": "",
   "license": "",
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-plugin-transform-react-jsx": "^6.23.0"
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "rollup": "^1.2.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.0.0"
   }
 }
