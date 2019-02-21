@@ -20,8 +20,16 @@ export function createElement (node) {
 
 export function setProps (el, props) {
     for (const key in props) {
-      el.setAttribute(key, props[key]);
+        setProp(el, key, props[key]);
     }
+}
+
+export function setProp (el, prop, value) {
+    el.setAttribute(prop, value);
+}
+
+export function removeProp(el, prop) {
+    el.removeAttribute(prop);
 }
 
 export function isNotSameTypeNode (node1, node2) {

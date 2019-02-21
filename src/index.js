@@ -23,6 +23,7 @@ function render(container) {
   container.appendChild(dom);
 
   // for patch test
+  // 这里使用定时器自动触发render,模拟react rerender
   setTimeout(() => tick(container, initialCount), 1000)
 }
 

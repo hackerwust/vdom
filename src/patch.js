@@ -6,8 +6,23 @@ import {
     SET_PROP,
     REMOVE_PROP
 } from './const'
-import { createElement } from './util'
+import { createElement, setProp, removeProp } from './util'
 
+function patchProps (el, patches) {
+    for (let i = 0; i < patches.length; i++) {
+        const patchProp = patches[i];
+        const { type } = patchProp;
+        let { key, value } = patchProp.prop;
+        if (key === 'className') {
+            key = 'class';
+        }
+        if (type === SET_PROP) {
+            setProp(el, key, value);
+        } else if (type === REMOVE_PROP) {
+            removeProp(el, key);
+        }
+    }
+}
 export default function patch (parent, patches, index = 0) {
     if (!patches) return;
     const el = parent.children[index];
@@ -25,16 +40,7 @@ export default function patch (parent, patches, index = 0) {
         break;
       case UPDATE:
         const { props, children } = patches;
-        for (let i = 0; i < props.length; i++) {
-          const patchProp = props[i];
-          const { type } = patchProp;
-          const { key, value } = patchProp.prop;
-          if (type === SET_PROP) {
-            el.setAttribute(key, value);
-          } else if (type === REMOVE_PROP) {
-            el.removeAttribute(key === 'className' ? 'class' : key);
-          }
-        }
+        patchProps(el, props);
         for (let i = 0; i < children.length; i++) {
           patch(el, children[i], i);
         }
