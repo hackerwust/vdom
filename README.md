@@ -1,6 +1,6 @@
-# react-vdom
+# vdom example
 
-主要实现了react中的vdom diff && patch 部分
+实现了vdom diff && patch
 
 ### 运行
 1. git clone https://github.com/hackerwust/react-vdom.git
